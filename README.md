@@ -1,2 +1,2 @@
 # RetroPaint
-An homage to the very well Microsoft paint, this project is a recreation of MS Paint that was shipped with Windows XP.
+An homage to the well-known Microsoft paint, this project is a recreation of MS Paint that was shipped with Windows XP.
