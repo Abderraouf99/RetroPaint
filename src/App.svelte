@@ -1,45 +1,64 @@
 <script lang="ts">
-  import svelteLogo from './assets/svelte.svg'
-  import Counter from './lib/Counter.svelte'
 </script>
 
 <main>
-  <div>
-    <a href="https://vitejs.dev" target="_blank"> 
-      <img src="/vite.svg" class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank"> 
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
+  <div class="app-options-container" />
+  <div class="grid-column-2 grid-row-2">
+    <div class="tools-panel">
+      <div />
+    </div>
+
+    <div class="diagram-area">
+      <div />
+    </div>
+
+    <div class="color-palette-container" />
   </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
 </main>
 
 <style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
+  :root {
+    --option-bar-height: 20px;
+    --tool-bar-width: 100px;
+    --color-picker-footer-height: 80px;
   }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+  main {
+    height: 100%;
+    width: 100%;
   }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
+
+  .app-options-container {
+    height: var(--option-bar-height);
+    width: 100%;
+    background-color: blue;
   }
-  .read-the-docs {
-    color: #888;
+  .grid-column-2 {
+    display: grid;
+    grid-template-columns: var(--tool-bar-width) calc(
+        100vw - var(--tool-bar-width)
+      );
+    height: 100%;
+    width: 100%;
+  }
+  .grid-row-2 {
+    grid-template-rows:
+      calc(
+        100vh -
+          calc(var(--color-picker-footer-height) + var(--option-bar-height))
+      )
+      calc(var(--color-picker-footer-height) + var(--option-bar-height));
+  }
+  .color-palette-container {
+    height: var(--color-picker-footer-height);
+    grid-column: 2;
+    width: 100%;
+  }
+
+  .tools-panel {
+    background-color: black;
+  }
+
+  .diagram-area {
+    background-color: red;
   }
 </style>
