@@ -1,15 +1,20 @@
 <script lang="ts">
+  import AppOptions from "./lib/components/AppOptions.svelte";
+  import Canvas from "./lib/components/Canvas.svelte";
+  import ToolsPanel from "./lib/components/ToolsPanel.svelte";
 </script>
 
 <main>
-  <div class="app-options-container" />
+  <div class="app-options-container">
+    <AppOptions />
+  </div>
   <div class="grid-column-2 grid-row-2">
     <div class="tools-panel">
-      <div />
+      <ToolsPanel />
     </div>
 
     <div class="diagram-area">
-      <div />
+      <Canvas />
     </div>
 
     <div class="color-palette-container" />
@@ -19,7 +24,7 @@
 <style>
   :root {
     --option-bar-height: 20px;
-    --tool-bar-width: 100px;
+    --tool-bar-width: 56px;
     --color-picker-footer-height: 80px;
   }
   main {
@@ -30,7 +35,7 @@
   .app-options-container {
     height: var(--option-bar-height);
     width: 100%;
-    background-color: blue;
+    background-color: var(--primary-color);
   }
   .grid-column-2 {
     display: grid;
@@ -49,16 +54,22 @@
       calc(var(--color-picker-footer-height) + var(--option-bar-height));
   }
   .color-palette-container {
+    grid-column: span 2;
     height: var(--color-picker-footer-height);
-    grid-column: 2;
     width: 100%;
+    background-color: var(--primary-color);
+    border: solid 1px white;
   }
 
   .tools-panel {
-    background-color: black;
+    background-color: var(--primary-color);
+    border: solid 1px black;
+    border-top: solid 1px white;
   }
 
   .diagram-area {
-    background-color: red;
+    background-color: var(--secondary-color);
+    border: solid 1px black;
+    border-left: none;
   }
 </style>
