@@ -1,4 +1,5 @@
 <script lang="ts">
+  import AppFooter from "./lib/components/AppFooter.svelte";
   import AppOptions from "./lib/components/AppOptions.svelte";
   import Canvas from "./lib/components/Canvas.svelte";
   import ToolsPanel from "./lib/components/ToolsPanel.svelte";
@@ -17,7 +18,9 @@
       <Canvas />
     </div>
 
-    <div class="color-palette-container" />
+    <div class="color-palette-container">
+      <AppFooter />
+    </div>
   </div>
 </main>
 
@@ -25,7 +28,7 @@
   :root {
     --option-bar-height: 20px;
     --tool-bar-width: 56px;
-    --color-picker-footer-height: 80px;
+    --color-picker-footer-height: 70px;
   }
   main {
     height: 100%;
