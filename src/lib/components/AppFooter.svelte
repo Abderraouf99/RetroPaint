@@ -30,6 +30,12 @@
     foregroundColorStores.update(() => oldBackgroundColor);
   }
 
+  function handleChangeForegroundColor(event: MouseEvent) {
+    if (event.target === null || event.target === undefined) return;
+    const { color } = event.target.dataset;
+    foregroundColorStores.update(() => color);
+  }
+
   window.addEventListener("mousemove", handleMouseMove);
 </script>
 
@@ -54,6 +60,8 @@
       <div
         style:background-color={color}
         class="color-tile top-left-border bottom-right-border"
+        data-color={color}
+        on:click={handleChangeForegroundColor}
       />
     {/each}
   </div>
