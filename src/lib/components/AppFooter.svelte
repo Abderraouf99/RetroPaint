@@ -4,18 +4,10 @@
     backgroundColorStores,
     foregroundColorStores,
   } from "../stores/toolsColorsStores";
+  import { onDestroy } from "svelte";
 
   const colorPalette = DEFAULT_COLORS;
   let mousePosition = { x: 0, y: 0 };
-  let foregroundColor: string = "";
-  let backgroundColor: string = "";
-
-  foregroundColorStores.subscribe((value) => {
-    foregroundColor = value;
-  });
-  backgroundColorStores.subscribe((value) => {
-    backgroundColor = value;
-  });
 
   function handleMouseMove(event: MouseEvent) {
     const { clientX, clientY } = event;
@@ -23,8 +15,8 @@
   }
 
   function handleColorSwitch() {
-    const oldForegroundColor = foregroundColor;
-    const oldBackgroundColor = backgroundColor;
+    const oldForegroundColor = $foregroundColorStores;
+    const oldBackgroundColor = $backgroundColorStores;
 
     backgroundColorStores.update(() => oldForegroundColor);
     foregroundColorStores.update(() => oldBackgroundColor);
@@ -37,6 +29,9 @@
   }
 
   window.addEventListener("mousemove", handleMouseMove);
+  onDestroy(() => {
+    window.removeEventListener("mousemove", handleMouseMove);
+  });
 </script>
 
 <div style="height: 5px" />
@@ -46,12 +41,12 @@
       class="primary-secondary-color-switcher top-left-border bottom-right-border"
     >
       <div
-        style:background-color={foregroundColor}
+        style:background-color={$foregroundColorStores}
         class="primary-color top-left-border bottom-right-border"
         on:click={handleColorSwitch}
       />
       <div
-        style:background-color={backgroundColor}
+        style:background-color={$backgroundColorStores}
         class="secondary-color  top-left-border bottom-right-border"
         on:click={handleColorSwitch}
       />

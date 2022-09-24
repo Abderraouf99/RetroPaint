@@ -28,3 +28,62 @@ export const DEFAULT_COLORS: string[] = [
   "#FF000F",
   "#FF8040",
 ];
+
+export const AVAILABLE_TOOLS = [
+  {
+    label: "selection-free",
+    src: "src/assets/tools/free-select.png",
+    alt: "Free form selection tool",
+  },
+  {
+    label: "selection-rect",
+    src: "src/assets/tools/rect-select.png",
+    alt: "Rectangular selection tool",
+  },
+  { label: "eraser", src: "src/assets/tools/eraser.png", alt: "Eraser tool" },
+  {
+    label: "paint-bucket",
+    src: "src/assets/tools/paint-bucker.png",
+    alt: "Paint bucket tool",
+  },
+  {
+    label: "color-picker",
+    src: "src/assets/tools/color-picker.png",
+    alt: "Color picker tool",
+  },
+  { label: "zoom", src: "src/assets/tools/zoom.png", alt: "Zooming tool" },
+  { label: "pencil", src: "src/assets/tools/pencil.png", alt: "Pencil tool" },
+  {
+    label: "brush",
+    src: "src/assets/tools/paint-brush.png",
+    alt: "Paint brush tool",
+  },
+  {
+    label: "graphiti",
+    src: "src/assets/tools/grafiti.png",
+    alt: "Graphiti tool",
+  },
+  { label: "text", src: "src/assets/tools/text.png", alt: "Text tool" },
+  { label: "line", src: "src/assets/tools/line.png", alt: "Line tool" },
+  {
+    label: "curve",
+    src: "src/assets/tools/bezzier.png",
+    alt: "Bezzier curve tool",
+  },
+  {
+    label: "rect",
+    src: "src/assets/tools/rectangle.png",
+    alt: "Rectangle tool",
+  },
+  { label: "shape", src: "src/assets/tools/shape.png", alt: "Shape tool" },
+  {
+    label: "ellipse",
+    src: "src/assets/tools/ellipse.png",
+    alt: "Ellipse tool",
+  },
+  {
+    label: "rounded-rect",
+    src: "src/assets/tools/rounded-rect.png",
+    alt: "Rounded rectangle tool",
+  },
+];
